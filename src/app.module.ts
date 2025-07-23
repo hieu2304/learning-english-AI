@@ -6,9 +6,10 @@ import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
 import { UsersModule } from './users/users.module';
 import { OpenAiService } from './utils/openAI/service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [UsersModule, ConfigModule.forRoot({ isGlobal: true })],
+  imports: [AuthModule,UsersModule, ConfigModule.forRoot({ isGlobal: true })],
   controllers: [AppController, UsersController],
   providers: [AppService, UsersService, OpenAiService],
   exports: [OpenAiService],
